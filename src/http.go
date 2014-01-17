@@ -12,6 +12,8 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(".")))
-	http.HandleFunc("/hello", HelloServer)
+	http.HandleFunc("/hello", func(res http.ResponseWriter, req *http.Request) {
+			HelloServer(res, req)
+		})
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
