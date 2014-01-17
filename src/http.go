@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func HelloServer(w http.ResponseWriter, req *http.Request) {
+func HelloServer(w http.ResponseWriter, _ *http.Request) {
 	io.WriteString(w, "hello, go!\n")
 }
 
